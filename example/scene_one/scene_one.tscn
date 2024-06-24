@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcbbh3icbuv6d"]
+
+[ext_resource type="Script" path="res://addons/escape-room-essentials/scene.gd" id="1_ptpqe"]
+[ext_resource type="Texture2D" uid="uid://dwnxvgbreu2ux" path="res://example/scene_one/assets/bg.png" id="2_7ajp4"]
+[ext_resource type="PackedScene" uid="uid://cxmylhv3g53hi" path="res://addons/escape-room-essentials/trans/fade_trans.tscn" id="2_28n2q"]
+[ext_resource type="Script" path="res://addons/escape-room-essentials/scene_nav.gd" id="3_kvjtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh461"]
+size = Vector2(119, 95)
+
+[node name="SceneOne" type="Node"]
+script = ExtResource("1_ptpqe")
+
+[node name="FadeTrans" parent="." instance=ExtResource("2_28n2q")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_7ajp4")
+
+[node name="SceneNav" type="Area2D" parent="."]
+script = ExtResource("3_kvjtb")
+target_scene = "res://example/scene_two/scene_two.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneNav"]
+position = Vector2(1799.5, 381)
+shape = SubResource("RectangleShape2D_dh461")

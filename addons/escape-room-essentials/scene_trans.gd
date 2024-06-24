@@ -6,8 +6,6 @@ extends Node
 
 signal leave_complete
 
-@onready var tween := create_tween()
-
 
 func _ready() -> void:
 	add_to_group("scene_trans")
@@ -18,7 +16,7 @@ func enter() -> void:
 
 
 func leave() -> void:
-	tween.connect("finished", _on_leave_complete)
+	pass
 
 
 func _on_leave_complete() -> void:
